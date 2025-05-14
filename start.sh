@@ -6,6 +6,8 @@ main_ip=$(ip route get 1.1.1.1 | awk '{print $7; exit}')
 upnpc -a $main_ip 80 80 tcp
 upnpc -a $main_ip 443 443 tcp
 
+upnpc -a $main_ip 5900 5900 tcp
+
 noip-duc -g all.ddnskey.com --username $username --password $password --daemonize
 
 cd /home/pi/PhotoUploaderBackend
