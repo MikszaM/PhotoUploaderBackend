@@ -1,4 +1,5 @@
 #!/bin/bash
+source noip.conf
 upnpc -d 80 tcp
 upnpc -d 443 tcp
 main_ip=$(ip route get 1.1.1.1 | awk '{print $7; exit}')
