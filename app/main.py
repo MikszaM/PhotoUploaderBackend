@@ -9,11 +9,10 @@ import subprocess
 
 app = FastAPI()
 
-CODE='1234'
+CODE='6gAlJF15Y4'
 
 UPLOAD_DIR='/media/pi/MM/Photos'
-REMOTE_PATH='remote:testrclone'
-CONFIG_FILE='/home/pi/.config/rclone/rclone.conf'
+REMOTE_PATH='remote:panienski'
 
 #CORS
 app.add_middleware(
@@ -42,7 +41,7 @@ def read_root():
 
 async def process_file(file_location: str):
     cmd_line = (
-        f"rclone --config {CONFIG_FILE} copy '{file_location}' {REMOTE_PATH}"
+        f"rclone copy '{file_location}' {REMOTE_PATH}"
     )
     _ = await run_cmd(cmd_line)
 
