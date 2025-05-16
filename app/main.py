@@ -6,10 +6,14 @@ import uvicorn
 import os
 import asyncio
 import subprocess
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path=".env", override=False)
+load_dotenv(dotenv_path=".env.local", override=True)  # Overrides if variables already exist
+
+CODE = os.getenv("CODE")
 
 app = FastAPI()
-
-CODE='6gAlJF15Y4'
 
 UPLOAD_DIR='/media/pi/MM/Photos'
 REMOTE_PATH='remote:panienski'
