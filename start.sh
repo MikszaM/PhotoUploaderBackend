@@ -1,5 +1,14 @@
 #!/bin/bash
 source noip.conf
+
+while true; do
+    if upnpc -s 2>/dev/null | grep -q "Found valid IGD"; then
+        echo "Valid IGD found!"
+        break
+    fi
+    sleep 2
+done
+
 upnpc -d 80 tcp
 upnpc -d 443 tcp
 upnpc -d 5900 tcp
